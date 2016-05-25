@@ -1,0 +1,54 @@
+{
+      "statusCode": 200,
+      "statusMsg": "OK",
+      "data": {
+            "whole": [
+                  {
+                        "img_url": "img/tujian1.png"
+                  }, {
+                        "img_url": "img/tujian1.png"
+                  }, {
+                        "img_url": "img/tujian1.png"
+                  }
+            ],
+            "detail": [
+                  {
+                        "img_url": "img/tujian1.png"
+                  }, {
+                        "img_url": "img/tujian1.png"
+                  }, {
+                        "img_url": "img/tujian1.png"
+                  }, {
+                        "img_url": "img/tujian1.png"
+                  }
+            ],
+            "inside": [
+                  {
+                        "img_url": "img/tujian1.png"
+                  }, {
+                        "img_url": "img/tujian1.png"
+                  }, {
+                        "img_url": "img/tujian1.png"
+                  }, {
+                        "img_url": "img/tujian1.png"
+                  }, {
+                        "img_url": "img/tujian1.png"
+                  }
+            ],
+            "other": [
+                  {
+                        "img_url": "img/tujian1.png"
+                  }, {
+                        "img_url": "img/tujian1.png"
+                  }, {
+                        "img_url": "img/tujian1.png"
+                  }, {
+                        "img_url": "img/tujian1.png"
+                  }, {
+                        "img_url": "img/tujian1.png"
+                  }, {
+                        "img_url": "img/tujian1.png"
+                  }
+            ]
+      }
+}

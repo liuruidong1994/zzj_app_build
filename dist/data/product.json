@@ -1,0 +1,52 @@
+{
+      "statusCode": 200,
+      "statusMsg": "OK",
+      "data": {
+            "is_end" : "0",
+            "product":[
+                  {
+                        "cover_img_url":"img/tujian1.png",
+                        "title": "装载机现场评测",
+                        "product_id":"1",
+                        "view_num":3000,
+                        "price": 11,
+                        "created_time":"05-09"
+                  }, {
+                        "cover_img_url":"img/tujian2.png",
+                        "title": "装载机现场评测",
+                        "product_id":"2",
+                        "view_num":4000,
+                        "price": 12,
+                        "created_time":"05-19"
+                  }, {
+                        "cover_img_url":"img/tujian3.png",
+                        "title": "装载机现场评测",
+                        "product_id":"3",
+                        "view_num":5000,
+                        "price": 13,
+                        "created_time":"05-29"
+                  }, {
+                        "cover_img_url":"img/tujian1.png",
+                        "title": "装载机现场评测",
+                        "product_id":"4",
+                        "view_num":3000,
+                        "price": 11,
+                        "created_time":"05-09"
+                  }, {
+                        "cover_img_url":"img/tujian2.png",
+                        "title": "装载机现场评测",
+                        "product_id":"5",
+                        "view_num":4000,
+                        "price": 12,
+                        "created_time":"05-19"
+                  }, {
+                        "cover_img_url":"img/tujian3.png",
+                        "title": "装载机现场评测",
+                        "product_id":"6",
+                        "view_num":5000,
+                        "price": 13,
+                        "created_time":"05-29"
+                  }
+            ]
+      }
+}

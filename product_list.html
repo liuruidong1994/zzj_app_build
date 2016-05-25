@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>资讯</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="assets/css/demos.css">
+    <link rel="stylesheet" href="dist/css/style.css">
+
+</head>
+<body>
+<!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+<div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page" id="product_list_page">
+        <!-- 标题栏 -->
+        <header class="bar bar-nav add_bar">
+            <h1 class="title">商品</h1>
+        </header>
+
+        <!-- 工具栏 -->
+        <nav class="bar bar-tab">
+            <a class="tab-item external" href="index.html">
+                <span class="icon icon_tab_home"><img src="img/home_lowlight.png"></span>
+                <span class="tab-label">首页</span>
+            </a>
+            <a class="tab-item external" href="news.html">
+                <span class="icon icon_tab_home"><img src="img/news.png"></span>
+                <span class="tab-label">资讯</span>
+            </a>
+            <a class="tab-item external" href="photo.html">
+                <span class="icon icon_tab_home"><img src="img/products_lowlight.png"></span>
+                <span class="tab-label">产品图库</span>
+            </a>
+            <a class="tab-item external" href="video.html">
+                <span class="icon icon_tab_home"><img src="img/video_lowlight.png"></span>
+                <span class="tab-label">视频</span>
+            </a>
+        </nav>
+
+        <!-- 这里是页面内容区 -->
+        <!-- content应该拥有"pull-to-refresh-content"类,表示启用下拉刷新 -->
+        <div class="content pull-to-refresh-content infinite-scroll infinite-scroll-bottom" data-ptr-distance="55">
+            <!-- 默认的下拉刷新层 -->
+            <div class="pull-to-refresh-layer">
+                <div class="preloader"></div>
+                <div class="pull-to-refresh-arrow"></div>
+            </div>
+            <!-- 下面是正文 -->
+            <!--<div class="card-container">-->
+                <!--<div class="card">-->
+                    <!--<div class="card-header">card</div>-->
+                    <!--<div class="card-content">-->
+                        <!--<div class="card-content-inner">-->
+                            <!--这里是第1个card，下拉刷新会出现第2个card。-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <div class="list-block media-list recommend_list">
+            <ul id="list_pro_ul">
+
+            </ul>
+        </div>
+
+        <!-- 加载提示符 -->
+        <div class="infinite-scroll-preloader">
+            <div class="preloader"></div>
+        </div>
+
+    </div>
+</div>
+
+<script type='text/javascript' src="http://g.alicdn.com/sj/lib/zepto/zepto.min.js" charset='utf-8'></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='dist/js/sm-extend.min.js' charset='utf-8'></script>
+<script src="assets/js/config.js"></script>
+    <script src="dist/busi.js"></script>
+
+<script>
+
+$(function() {
+
+    $.ajax({
+        type:"get",//请求方式
+        url:path+"news.json",//发送请求地址
+          //url:"http://owiss-cloud.test.liuruidong.net/zzj/news.json",//发送请求地址
+//        data:{//发送给数据库的数据
+//            username:$("#username").val(),
+//            content:$("#content").val()
+//        },
+        async: false,
+        //请求成功后的回调函数有两个参数
+        success:function(data,textStatus){
+            initNews(data.data.news);
+        }
+    });
+
+    refreshLoad();
+    loadLast();
+
+});
+
+function initProducts($product) {
+
+    var tj_ul = $('#list_pro_ul');
+
+    for (var i = 0; i < $product.length; i++) {
+        var wl = "http://www.baidu.com.cn";
+        //var wl = $product[i].url;
+        var item_li = '<li> <a href="'+ wl+'" ' +
+                '<div class="item-content recommend_list_cont"> ' +
+                '<div class="item-media recommend_list_img home_img"><img src="'+$product[i].cover_img_url+'"></div> ' +
+                '<div class="item-inner" style="margin-left:2%;padding-right: 0.3rem"> ' +
+                '<div class="row"> ' +
+                '<div class="col-80"> ' +
+                '<div class="item-title-row"> ' +
+                '<div class="item-title" style="font-size:0.65rem">'+$product[i].title+'</div> ' +
+                '</div> ' +
+                '<div class="recommend_list_stitle"> ' +
+                '<div class="recommend_list_eye" ><img src="img/viewed.png">'+$product[i].view_num+'</div> ' +
+                '<div class="recommend_list_date" >'+$product[i].create_time+'</div> ' +
+                '</div> ' +
+                '</div> ' +
+                '<div class="col-20"> ' +
+                '<div class="recommend_list_price">'+$product[i].price+' </div> </div> </div> </div> </div> ' +
+                '</li>';
+
+        tj_ul.append(item_li);
+    }
+}
+
+/**
+ * 下拉时候给上面刷新最新资讯
+ */
+function refreshLoad () {
+    console.log("下拉啊");
+
+    // 添加'refresh'监听器
+    $(document).on('refresh', '.pull-to-refresh-content',function(e) {
+        console.log("下拉开始啦");
+
+        //先去请求最新的数据，要求数据按时间正序排序，越新的越靠后。
+        $.ajax({
+            type:"get",//请求方式
+            url:path+shangpin_load_path,//发送请求地址
+            //url:"http://owiss-cloud.test.liuruidong.net/zzj/news.json",//发送请求地址
+//            data:{//发送给数据库的数据
+//                username:$("#username").val(),
+//                content:$("#content").val()
+//            },
+            async: false,
+            //请求成功后的回调函数有两个参数
+            success:function(data,textStatus){
+                // 模拟2s的加载过程
+                setTimeout(function() {
+                    initProducts(data.data.product, "pre");
+                    // 加载完毕需要重置
+                    $.pullToRefreshDone('.pull-to-refresh-content');
+                }, 2000);
+            }
+        });
+    });
+}
+    //最后的一条数据的id（传递最后的一条id，后台根据这个id查询这个id之后的数据信息，解决脏数据问题）
+    var lastIndex = "";
+    function loadLast() {
+        console.log("无限加载不。。。");
+        //无限滚动
+
+            var loading = false;
+            // 每次加载添加多少条目
+            var itemsPerLoad = 20;
+
+            $(document).on('infinite', '.infinite-scroll-bottom', function() {
+                console.log("无限加载开始啦、、、");
+                // 如果正在加载，则退出
+                if (loading) return;
+                // 设置flag
+                loading = true;
+
+                $.ajax({
+                    type:"get",//请求方式
+                    url:path + shangpin_next_path,//发送请求地址
+                    //url:"http://owiss-cloud.test.liuruidong.net/zzj/news.json",//发送请求地址
+                    data:{
+                        //发送给数据库的数据
+                        since_id: lastIndex
+                    },
+                    async: false,
+                    //请求成功后的回调函数有两个参数
+                    success:function(data,textStatus){
+                        // 模拟1s的加载过程
+                        setTimeout(function() {
+
+                            initProducts(data.data.product);
+
+                            //lastIndex是数据的最后一个的id
+                            lastIndex = "";
+                            $.refreshScroller();
+                        }, 1000);
+                    }
+                });
+            });
+
+    }
+
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>产品图库</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="assets/css/demos.css">
+    <link rel="stylesheet" href="dist/css/style.css">
+
+</head>
+<body>
+<!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+<div class="page-group">
+    <link rel="stylesheet" type="text/css" href="dist/css/slidernav.css" media="screen, projection" />
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page" id="photo_page">
+        <!-- 标题栏 -->
+        <header class="bar bar-nav add_bar">
+            <h1 class="title">产品图库</h1>
+        </header>
+
+        <!-- 工具栏 -->
+        <nav class="bar bar-tab" style="z-index: 6001;">
+            <a class="tab-item external" href="index.html">
+                <span class="icon icon_tab_home"><img src="img/home_lowlight.png"></span>
+                <span class="tab-label">首页</span>
+            </a>
+            <a class="tab-item external" href="news.html">
+                <span class="icon icon_tab_home"><img src="img/news_lowlight.png"></span>
+                <span class="tab-label">资讯</span>
+            </a>
+            <a class="tab-item external active" href="photos.html">
+                <span class="icon icon_tab_home"><img src="img/products.png"></span>
+                <span class="tab-label">产品图库</span>
+            </a>
+            <a class="tab-item external" href="video.html">
+                <span class="icon icon_tab_home"><img src="img/video_lowlight.png"></span>
+                <span class="tab-label">视频</span>
+            </a>
+        </nav>
+
+        <!-- 这里是页面内容区 -->
+        <div class="content">
+            <div id="slider">
+                <div class="slider-content">
+                    <ul id="brand_ul_div">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left Panel with Reveal effect -->
+        <div class="panel panel-right panel-cover theme-dark panel_content" id='panel-js-demo'>
+            <div class="panel_title" id="panel_title_div"></div>
+            <div>
+                <ul id="panel_ul_div">
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+<script>
+    var a_z = new Array();
+    for(var i=0;i<26;i++){
+        a_z.push(String.fromCharCode(65+i));//输出A-Z  26个大写字母
+    }
+    console.log("哪个先执行" + a_z);
+
+    function loadBrands() {
+        console.log("是a..哪个先执行" + a_z);
+
+        $.ajax({
+            type:"get",//请求方式
+            url:path + brand_list_path,//发送请求地址
+            //url:"http://owiss-cloud.test.liuruidong.net/zzj/brand.json",//发送请求地址
+//            data:{//发送给数据库的数据
+//            username:$("#username").val(),
+//            content:$("#content").val()
+//        },
+            async: false,
+            //请求成功后的回调函数有两个参数
+            success:function(data,textStatus){
+                initBrand(data.data.brand);
+            }
+        });
+    }
+
+    //初始化品牌仿联系人的方式
+    function initBrand($brand) {
+        var brand_ul_div = $('#brand_ul_div');
+
+        for (var i = 0; i < $brand.length; i++) {
+            var brand_en = $brand[i].first_word;
+            var li_en = document.getElementById(brand_en);
+            console.log("我是null吗" + li_en);
+            if (li_en == null) {
+                li_en = $('<li id="'+brand_en +'"><a class="titles">'+$brand[i].first_word+'</a></li>')
+                var li_content_ul = $('<ul id="content_ul_'+brand_en+'"></ul>');
+                var content_li = '<li><a id="'+$brand[i].brand_id+'" class="close-popup"><img src="'+$brand[i].img_url+'"><span>'+$brand[i].name+'</span></a></li>';
+                li_content_ul.append(content_li);
+                li_en.append(li_content_ul);
+                brand_ul_div.append(li_en);
+            } else {
+                var li_content_ul = $('#content_ul_'+ brand_en);
+                var content_li = '<li><a id="'+$brand[i].brand_id+'" class="close-popup"><img src="'+$brand[i].img_url+'"><span>'+$brand[i].name+'</span></a></li>';
+                li_content_ul.append(content_li);
+            }
+        }
+
+        //initSlider();
+    }
+
+</script>
+
+    <script type='text/javascript' src="http://g.alicdn.com/sj/lib/zepto/zepto.min.js" charset='utf-8'></script>
+    <script type="text/javascript" src="dist/js/jquery-1.4.2.js"></script>
+    <script type="text/javascript" src="dist/js/slidernav.js"></script>
+<script type="text/javascript">
+//    var ifInit = false;
+//    $(document).ready(function () {
+//        console.log("字母初始化过了吗："+ ifInit);
+//        if (ifInit) return;
+//        initSlider();
+//        ifInit = true;
+//    })
+    initSlider();
+    //初始化侧边栏的字母
+    function initSlider() {
+        console.log("啥内容的"+$('.slider-nav').html());
+        if ($('.slider-nav').html() != null) {
+            return;
+        }
+        $('#slider').sliderNav();
+        //$('#transformers').sliderNav({items:['autobots','decepticons'], debug: true, height: '300', arrows: false});
+
+        var currHeight = $(window).height() - 40;
+        //alert(currHeight);
+        $('.slider-content')[0].style.height = currHeight + 'px';
+        $('.slider-nav')[0].style.height = currHeight + 'px';
+
+        $('.slider .slider-nav li a').css('padding', '0.15em 0.5rem');
+    }
+
+
+    $(document).on("click", ".close-popup", function() {
+        console.log(this.id);
+        initPanel(this.id);
+        $.openPanel("#panel-js-demo");
+    });
+
+    function  initPanel($brandId) {
+
+        $.ajax({
+            type:"get",//请求方式
+            url:path + brand_to_product_path,//发送请求地址
+            //url:"http://owiss-cloud.test.liuruidong.net/zzj/product.json",//发送请求地址
+            data:{//发送给数据库的数据
+                brand_id:$brandId
+            },
+            async: false,
+            //请求成功后的回调函数有两个参数
+            success:function(data,textStatus){
+                $('#panel_ul_div').html("");
+                initPanelContent(data.data.product);
+            }
+        });
+    }
+
+        function initPanelContent($product) {
+            console.log(4);
+            var main_div = $('#panel_ul_div');
+
+            for (var i = 0; i< $product.length; i++) {
+                var item_div = '<li> ' +
+                        '<a class="panel_list" href="picture_list3.html?productId='+ $product[i].product_id +'"> ' +
+                        '<div class="row"> ' +
+                        '<div class="col-40 home_img"> ' +
+                        '<img src="'+ $product[i].cover_img_url+'"> ' +
+                        '</div> ' +
+                        '<div class="col-50"> ' +
+                        '<div class="pannel_model">'+$product[i].title+'</div> ' +
+                        '<div class="pannel_price">'+$product[i].price+'万</div> ' +
+                        '</div> ' +
+                        '<div class="col-10"> ' +
+                        '<span href="" class="icon icon-right panel_arrow"></span> ' +
+                        '</div> ' +
+                        '</div> ' +
+                        '</a> ' +
+                        '</li>';
+                main_div.append(item_div);
+            }
+        }
+</script>
+
+</div>
+
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='dist/js/sm-extend.min.js' charset='utf-8'></script>
+<script src="assets/js/config.js"></script>
+<script src="dist/busi.js"></script>
+
+</body>
+</html>

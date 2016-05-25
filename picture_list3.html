@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>图库3</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="assets/css/demos.css">
+    <link rel="stylesheet" href="dist/css/style.css">
+
+</head>
+<body>
+<!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+<div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page" id="product_picture_div">
+        <!-- 标题栏 -->
+        <header class="bar bar-nav add_bar">
+            <a href="" class="icon icon-left pull-left back"></a>
+            <h1 class="title">小松SY220C挖掘机</h1>
+        </header>
+
+
+        <!-- 这里是页面内容区 -->
+        <div class="content" style="background: #ffffff;">
+            <div class="picture3_box">
+                <div class="home_part_title">
+                    <div class="color_box left"></div>
+                    <div class="left">整体外观</div>
+                </div>
+                <div class="picture3_content" id="zt_div">
+
+                </div>
+            </div>
+            <div class="picture3_box">
+                <div class="home_part_title">
+                    <div class="color_box left"></div>
+                    <div class="left">细节外观</div>
+                </div>
+                <div class="picture3_content"  id="xj_div">
+
+                </div>
+            </div>
+            <div class="picture3_box">
+                <div class="home_part_title">
+                    <div class="color_box left"></div>
+                    <div class="left">内部构造</div>
+                </div>
+                <div class="picture3_content" id="gz_div">
+
+                </div>
+            </div>
+            <div class="picture3_box" style="margin-bottom:14px;">
+                <div class="home_part_title">
+                    <div class="color_box left"></div>
+                    <div class="left">其他图片</div>
+                </div>
+                <div class="picture3_content"  id="qt_div">
+
+                </div>
+            </div>
+        </div>
+        <script>
+
+
+            //初始化页面的缩略图
+            function initProductPicture($data) {
+                var zt_div = $('#zt_div');
+                var xj_div = $('#xj_div');
+                var gz_div = $('#gz_div');
+                var qt_div = $('#qt_div');
+
+                initByDiv(zt_div, $data.whole_pic);
+                initByDiv(xj_div, $data.detail_pic);
+                initByDiv(gz_div, $data.inside_pic);
+                initByDiv(qt_div, $data.other_pic);
+
+            }
+
+            //根据不同的图库框加载图库
+            function initByDiv($div, $data) {
+                var row_div = $('<div class="row picture3_row">');
+                for (var i = 0; i < $data.length && i < 3; i ++) {
+                    var item_div = $('<div class="col-33 home_img pb-standalone-captions"><img src="'+$data[i].img_url+'"></div>');
+                    item_div.click(function(){
+                        watchMore($data);
+                    });
+
+                    row_div.append(item_div);
+                }
+                $div.append(row_div);
+                var row_div2;
+                if($data.length > 3 ){
+                   row_div2 = $('<div class="row picture3_row">');
+
+                    for (var i = 3; i < $data.length; i++) {
+
+                        if (i > 4) break;
+                        var item_div = $('<div class="col-33 home_img pb-standalone-captions"><img src="'+$data[i].img_url+'"></div>');
+                        item_div.click(function(){
+                            watchMore($data);
+                        });
+
+                        row_div2.append(item_div);
+                    }
+
+                    if($data.length > 4){
+                        var data_str = $data.toString();
+                        //console.log($data);
+                        //var data_temp = JSON.stringify($data);
+                        //console.log(data_temp);
+                        //data_temp = data_temp.replace("\"","\'");
+                        var item_str_div = $('<div class="col-33 home_img picture3_more pb-standalone-captions" >查看更多>></div>');
+                        item_str_div.click(function(){
+                            watchMore($data);
+                        });
+                        row_div2.append(item_str_div);
+                    }
+                    $div.append(row_div2);
+                }
+            }
+
+            function  test() {
+                alert();
+            }
+
+            //根据传过来的图库数组给加到更多的数据里
+            function watchMore($data){
+                console.log($data);
+
+                var pics = new Array();
+
+                for (var i = 0; i < $data.length ; i++) {
+                    var obj = new Object();
+                    //console.log($data[i].img_url);
+                    obj.url = $data[i].img_url;
+                    pics.push(obj);
+                }
+
+                var myPhotoBrowserCaptions = $.photoBrowser({
+                    photos : pics,
+                    theme: 'dark',
+                    type: 'standalone'
+                });
+
+                myPhotoBrowserCaptions.open();
+            }
+
+            function GetQueryString(name)
+            {
+                var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if(r!=null)return  decodeURI(r[2]); return null;
+            }
+        </script>
+    </div>
+</div>
+
+<script type='text/javascript' src="http://g.alicdn.com/sj/lib/zepto/zepto.min.js" charset='utf-8'></script>
+<script src="assets/js/config.js"></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='dist/js/sm-extend.min.js' charset='utf-8'></script>
+<script src="dist/busi.js"></script>
+<script src="assets/js/swiper.js"></script>
+<script>
+    /*=== 默认为 standalone ===*/
+    $(function(){
+
+
+        /*=== 有标题 ===*/
+//        var myPhotoBrowserCaptions = $.photoBrowser({
+//            photos : [
+//                {
+//                    url: 'img/picture1.png',
+//                    caption: '售价：10万'
+//                },
+//                {
+//                    url: 'img/picture1.png',
+//                    caption: '售价：10万'
+//                },
+//                // 这个没有标题
+//                {
+//                    url: 'img/picture1.png',
+//                    caption: '售价：10万'
+//                },
+//            ],
+//            theme: 'dark',
+//            type: 'standalone'
+//        });
+//        $(document).on('click','.pb-standalone-captions',function () {
+//            myPhotoBrowserCaptions.open();
+//        });
+
+
+    })
+</script>
+</body>
+</html>

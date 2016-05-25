@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>资讯_详情页</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
+    <link rel="stylesheet" href="assets/css/demos.css">
+    <link rel="stylesheet" href="dist/css/style.css">
+
+
+</head>
+<body>
+<!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+<div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page page-current" id="news_detail_page">
+        <!-- 标题栏 -->
+        <header class="bar bar-nav add_bar">
+            <a class="icon icon-left pull-left back"></a>
+            <h1 class="title">资讯</h1>
+        </header>
+
+        <!-- 这里是页面内容区 -->
+        <div class="content" style="background-color: #ffffff;">
+            <div class="news_details_t">
+                <div class="news_deta_title" id="title_div"></div>
+                <div class="news_deta_date" id="date_div"></div>
+            </div>
+            <div class="news_details_cont" id="detail_div">
+
+            </div>
+        </div>
+        <!--<script type='text/javascript' src="http://g.alicdn.com/sj/lib/zepto/zepto.min.js" charset='utf-8'></script>-->
+        <!--<script src="assets/js/config.js"></script>-->
+        <!--<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.1/js/??sm.min.js,sm-extend.min.js' charset='utf-8'></script>-->
+        <script>
+            var loadFlag = false;
+            $(document).on("pageInit", "#news_detail_page", function(e, pageId, $page) {
+               console.log("是否已经加载："+ loadFlag);
+                if (loadFlag) return;
+                loadFlag = true;
+                var $newsId = GetQueryString("newsId");
+                console.log("传过来的newsId:" + $newsId);
+                $.ajax({
+                    type:"get",//请求方式
+                    url:path+news_detail_path,//发送请求地址
+                    data:{//发送给数据库的数据
+                        //username:$("#username").val(),
+                        //content:$("#content").val()
+                        news_id:$newsId
+                    },
+                    async: false,
+                    //请求成功后的回调函数有两个参数
+                    success:function(data,textStatus){
+                        console.log("资讯详情:" + data.data);
+                        initNewsDetail(data.data);
+                    }
+                });
+            });
+
+            /**
+             * 初始化资讯详情
+             */
+            function initNewsDetail($data) {
+                $('#title_div').text($data.title);
+                $('#date_div').html($data.create_time + '<span><img src="img/viewed.png">'+ $data.view_num+'</span>');
+                $('#detail_div').html($data.html);
+            }
+
+            function GetQueryString(name)
+            {
+                var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if(r!=null)return  decodeURI(r[2]); return null;
+            }
+        </script>
+    </div>
+</div>
+<script type='text/javascript' src="http://g.alicdn.com/sj/lib/zepto/zepto.min.js" charset='utf-8'></script>
+<script src="assets/js/config.js"></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.1/js/??sm.min.js,sm-extend.min.js' charset='utf-8'></script>
+<script src="assets/js/swiper.js"></script>
+<script src="dist/busi.js"></script>
+</body>
+</html>

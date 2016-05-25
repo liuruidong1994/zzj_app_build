@@ -1,0 +1,28 @@
+{
+      "statusCode": 200,
+      "statusMsg": "OK",
+      "data": {
+
+            "name": "松尾芭蕉",
+            "price": "233",
+            "pictures" : [
+                  {
+                        "cover_img_url":"img/video1.png"
+                  }, {
+                        "cover_img_url":"img/video1.png"
+                  }, {
+                        "cover_img_url":"img/video1.png"
+                  }
+            ],
+            "buy_url" :"",
+            "device_type" : "挖掘机",
+            "brand" : "中联",
+            "device_model" : "zl233",
+            "device_status" : "布吉岛",
+            "certificate" : "无",
+            "producted_time" : "2016",
+            "created_time" : "2016-05-17",
+            "fapiao" : "啥玩意",
+            "don" : "12"
+      }
+}

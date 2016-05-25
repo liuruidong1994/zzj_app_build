@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>首页</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
+    <link rel="stylesheet" href="assets/css/demos.css">
+    <link rel="stylesheet" href="dist/css/style.css">
+
+
+</head>
+<body>
+<!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+<div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page page-current" id="index_page">
+        <!-- 标题栏 -->
+        <header class="bar bar-nav add_bar">
+            <a class="icon icon-search pull-right" href="search.html"></a>
+            <h1 class="title">装载机之家</h1>
+        </header>
+
+        <!-- 工具栏 -->
+        <nav class="bar bar-tab">
+            <a class="tab-item external active" href="index.html">
+                <span class="icon icon_tab_home"><img src="img/home.png"></span>
+                <span class="tab-label">首页</span>
+            </a>
+            <a class="tab-item external" href="news.html">
+                <span class="icon icon_tab_home"><img src="img/news_lowlight.png"></span>
+                <span class="tab-label">资讯</span>
+            </a>
+            <a class="tab-item external" href="photos.html">
+                <span class="icon icon_tab_home"><img src="img/products_lowlight.png"></span>
+                <span class="tab-label">产品图库</span>
+            </a>
+            <a class="tab-item external" href="video.html">
+                <span class="icon icon_tab_home"><img src="img/video_lowlight.png"></span>
+                <span class="tab-label">视频</span>
+            </a>
+        </nav>
+
+        <!-- 这里是页面内容区 -->
+        <div class="content">
+            <!-- Slider -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!--<div class="swiper-slide">-->
+                    <!--<img src="img/banner.png" alt="" style='width: 100%'>-->
+                    <!--</div>-->
+                    <!--<div class="swiper-slide">-->
+                    <!--<img src="img/banner.png" alt="" style='width: 100%'>-->
+                    <!--</div>-->
+                    <!--<div class="swiper-slide">-->
+                    <!--<img src="img/banner.png" alt="" style='width: 100%'>-->
+                    <!--</div>-->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="home_part">
+                <div id="don_div" class="row  no-gutter home_dun_row">
+                    <div class="col-20"><a href="tons.html?minTon=0&maxTon=5">5吨以下</a></div>
+                    <div class="col-20"><a href="tons.html?minTon=5&maxTon=8">5~8吨</a></div>
+                    <div class="col-20"><a href="tons.html?minTon=8&maxTon=12">8~12吨</a></div>
+                    <div class="col-20"><a href="tons.html?minTon=12&maxTon=16">12~16吨</a></div>
+                    <div class="col-20"><a href="tons.html?minTon=16&maxTon=999">16吨以上</a></div>
+                </div>
+                <div class="home_more_logo"><a href="photos.html">查看所有品牌</a></div>
+            </div>
+
+            <div class="home_part">
+                <div class="home_part_title">
+                    <div class="color_box left"></div>
+                    <div class="left">视频</div>
+                    <div class="right" ><a href="video.html"> 查看更多>></a></div>
+                </div>
+                <div id="video_div1" class="row row_video">
+
+                </div>
+                <div id="video_div2" class="row row_video">
+
+                </div>
+            </div>
+
+            <div class="home_part">
+                <div class="home_part_title">
+                    <div class="color_box left"></div>
+                    <div class="left">推荐</div>
+                    <div class="right"><a href="photos.html"> 查看更多>></a></div>
+                </div>
+                <div class="list-block media-list recommend_list">
+                    <ul id="list_tj_ul">
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="home_part">
+                <div class="home_part_title" id="pic_main_div">
+                    <div class="color_box left"></div>
+                    <div class="left">产品图库</div>
+                    <div class="right"><a href="photos.html"> 查看更多>></a></div>
+                </div>
+                <!--<div class="row home_pict_row" style="padding:0 0.3rem;">-->
+                <!--<div class="col-60">-->
+                <!--<div class="home_img home_pict_1">-->
+                <!--<img class='card-cover' id="card_pic_1" src="" alt="">-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-40">-->
+                <!--<div class="home_img home_pict_2">-->
+                <!--<img class='card-cover' id="card_pic_2" src="" alt="">-->
+                <!--</div>-->
+
+                <!--<div class="home_img home_pict_3">-->
+                <!--<img class='card-cover' id="card_pic_3" src="" alt="">-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row" style="padding:0 0.3rem;">-->
+                <!--<div class="home_img home_pict_4">-->
+                <!--<img class='card-cover' id="card_pic_4" src="" alt="">-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+
+            <div class="home_part">
+                <div class="home_part_title">
+                    <div class="color_box left"></div>
+                    <div class="left">资讯</div>
+                    <div class="right" onclick="goNewsList()"> 查看更多>></div>
+                </div>
+                <div class="list-block media-list recommend_list">
+                    <ul id="list_news_ul">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="home_part">
+                <div class="home_part_title">
+                    <div class="color_box left"></div>
+                    <div class="left">商品</div>
+                    <div class="right"><a href="product_list.html"> 查看更多>></a></div>
+                </div>
+                <div class="list-block media-list recommend_list">
+                    <ul id="list_pro_ul">
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</div>
+
+<script type='text/javascript' src="http://g.alicdn.com/sj/lib/zepto/zepto.min.js" charset='utf-8'></script>
+<script src="assets/js/config.js"></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.1/js/??sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='dist/js/sm-extend.min.js' charset='utf-8'></script>
+<script src="assets/js/swiper.js"></script>
+<script src="dist/busi.js"></script>
+<script>
+    $(function () {
+
+        initPage();
+
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            paginationClickable: true,
+            centeredSlides: true,
+            autoplay: 2500,
+            autoplayDisableOnInteraction: false,
+            loop: true
+        });
+    });
+
+    /**
+     * 初始化页面
+     */
+    function initPage() {
+        console.log("没事也不加载啊");
+        $.ajax({
+            type: "get",//请求方式
+            url: path + index_path,//发送请求地址
+            //url: "http://owiss-cloud.test.liuruidong.net/zzj/index.json",//发送请求地址
+            data:{//发送给数据库的数据
+
+            },
+            async: false,
+            //请求成功后的回调函数有两个参数
+            success: function (data, textStatus) {
+                //console.log(data.data.banner);
+                initBanner(data.data.banner);
+                initBrand(data.data.brand);
+                initVideo(data.data.video);
+                initRecommend(data.data.product);
+                initPicture(data.data.picture);
+                initNews(data.data.news);
+                initProducts(data.data.shop);
+            }
+        });
+    }
+
+    /**
+     * 初始化banner
+     * @param $banners
+     */
+    function initBanner($banners) {
+        var swiper_wrapper_div = $('.swiper-wrapper');
+
+        for (var i = 0; i < $banners.length; i++) {
+            var banner_href = "";
+            var banner_url = $banners[i].img_url;
+            var item_div = '<div class="swiper-slide" href="#"><img src="' + banner_url + '" style="width: 100%"></div>';
+            swiper_wrapper_div.append(item_div);
+        }
+    }
+
+    /**
+     * 初始化品牌的8个图
+     * @param $brand
+     */
+    function initBrand($brand) {
+        var don_div = $('#don_div');
+
+        var brand_div1 = $('<div class="row  no-gutter home_logo_row"></div>');
+        for (var i = 0; i < 4; i++) {
+            var item_div = '<div class="col-25" id ="' + $brand[i].brand_id + '"><a href="brand.html?brandId=' + $brand[i].brand_id + '&brand_name='+ $brand[i].name+'"> <img src="' + $brand[i].img_url + '"><div>' + $brand[i].name + '</div></a></div>'
+            brand_div1.append(item_div);
+        }
+        don_div.after(brand_div1);
+        var brand_div2 = $('<div class="row  no-gutter home_logo_row"></div>');
+        for (var i = 4; i < 8; i++) {
+            var item_div = '<div class="col-25" id ="' + $brand[i].brand_id + '"><a href="brand.html?brandId=' + $brand[i].brand_id + '&brand_name='+ $brand[i].name+'"> <img src="' + $brand[i].img_url + '"><div>' + $brand[i].name + '</div></a></div>'
+            brand_div2.append(item_div);
+        }
+        brand_div1.after(brand_div2);
+    }
+
+    /**
+     * 初始化视频
+     * @param $video
+     */
+    function initVideo($video) {
+
+        //var video_head_div = $('#video_head_div');
+        console.log('video data:');
+        console.log($video);
+        for (var i = 0; i < 4; i++) {
+            var video_img = $video[i].cover_img_url;
+            var video_title = $video[i].title;
+            var video_id = $video[i].video_id;
+            var view_num = $video[i].view_num;
+
+            var item_div = '<div class="col-50">' +
+                    '<div class="home_img video_img">' +
+                    '<img class="card-cover" src="' + video_img + '" >' +
+                    '</div>' +
+                    '<div class="row row_video no-gutter row_video_col">' +
+                    '<div class="col-80"> ' +
+                    '<div>' + video_title + '</div> ' +
+                    '<div class="video_signs"><img src="img/Bitmap.png"><span>' + view_num + '</span></div> ' +
+                    '</div> ' +
+                    '<div class="col-20"> ' +
+                    '<img onclick="watchVideo(\''+ $video[i].video_url +'\')" class="video_signb" src="img/Bitmap Copy 6.png">' +
+                    '</div> ' +
+                    '</div> ' +
+                    '</div>';
+
+            if (i < 2) {
+                $('#video_div1').append(item_div);
+            } else {
+                $('#video_div2').append(item_div);
+            }
+        }
+    }
+
+    /**
+     * 初始化推荐
+     * @param $product
+     */
+    function initRecommend($product) {
+        var tj_ul = $('#list_tj_ul');
+        for (var i = 0; i < 3; i++) {
+            var item_li = '<li> <a href="product_detail.html?productId='+ $product[i].product_id+'" ' +
+                    '<div class="item-content recommend_list_cont"> ' +
+                    '<div class="item-media recommend_list_img home_img"><img src="'+$product[i].cover_img_url+'"></div> ' +
+                    '<div class="item-inner" style="margin-left:2%;padding-right: 0.3rem"> ' +
+                    '<div class="row"> ' +
+                    '<div class="col-80"> ' +
+                    '<div class="item-title-row"> ' +
+                    '<div class="item-title" style="font-size:0.65rem">'+$product[i].title+'</div> ' +
+                    '</div> ' +
+                    '<div class="recommend_list_stitle"> ' +
+                    '<div class="recommend_list_eye" ><img src="img/viewed.png">'+$product[i].view_num+'</div> ' +
+                    '<div class="recommend_list_date" >'+$product[i].create_time+'</div> ' +
+                    '</div> ' +
+                    '</div> ' +
+                    '<div class="col-20"> ' +
+                    '<div class="recommend_list_price">'+$product[i].price+'万 </div> </div> </div> </div> </div> ' +
+                    '</li>';
+
+            tj_ul.append(item_li);
+        }
+//
+//
+//
+//        for (var i = 1; i < 4; i++) {
+//            $('#list_img_' + i).attr('src', $product[i - 1].cover_img_url);
+//            $('#title_' + i).text($product[i - 1].title);
+//            $('#list_eye_' + i).html('<img src="img/viewed.png">' + $product[i - 1].view_num);
+//            $('#list_date_' + i).text($product[i - 1].created_time);
+//            $('#list_price_' + i).text($product[i - 1].price);
+//        }
+    }
+    /**
+     * 初始化商品
+     * @param $product
+     */
+    function initProducts($product) {
+
+        var tj_ul = $('#list_pro_ul');
+
+        for (var i = 0; i < 3; i++) {
+            var wl = "http://www.baidu.com.cn";
+            //var wl = $product[i].url;
+            var item_li = '<li> <a href="'+ wl+'" ' +
+                    '<div class="item-content recommend_list_cont"> ' +
+                    '<div class="item-media recommend_list_img home_img"><img src="'+$product[i].cover_img_url+'"></div> ' +
+                    '<div class="item-inner" style="margin-left:2%;padding-right: 0.3rem"> ' +
+                    '<div class="row"> ' +
+                    '<div class="col-80"> ' +
+                    '<div class="item-title-row"> ' +
+                    '<div class="item-title" style="font-size:0.65rem">'+$product[i].title+'</div> ' +
+                    '</div> ' +
+                    '<div class="recommend_list_stitle"> ' +
+                    '<div class="recommend_list_eye" ><img src="img/viewed.png">'+$product[i].view_num+'</div> ' +
+                    '<div class="recommend_list_date" >'+$product[i].create_time+'</div> ' +
+                    '</div> ' +
+                    '</div> ' +
+                    '<div class="col-20"> ' +
+                    '<div class="recommend_list_price">'+$product[i].price+' </div> </div> </div> </div> </div> ' +
+                    '</li>';
+
+            tj_ul.append(item_li);
+        }
+    }
+
+    /**
+     * 初始化图库
+     * @param $picture
+     */
+    function initPicture($picture) {
+
+        var pic_con = '<div class="row home_pict_row" style="padding:0 0.3rem;"> <div class="col-60"> ' +
+                '<div class="home_img home_pict_1"> <a href="picture_list3.html?productId='+$picture[0].product_id+'"><img class="card-cover" src="'+$picture[0].img_url+'" alt=""></a>  </div> </div> ' +
+                '<div class="col-40"> <div class="home_img home_pict_2"> <a href="picture_list3.html?productId='+$picture[1].product_id+'"><img class="card-cover" id="card_pic_2" src="'+$picture[1].img_url+'" alt=""></a> </div> ' +
+                '<div class="home_img home_pict_3"> ' +
+                '<a href="picture_list3.html?productId='+$picture[2].product_id+'"><img class="card-cover" src="'+$picture[2].img_url+'" alt=""></a> </div> </div> </div> <div class="row" style="padding:0 0.3rem;"> ' +
+                '<div class="home_img home_pict_4"> ' +
+                '<a href="picture_list3.html?productId='+$picture[3].product_id+'"><img class="card-cover" src="'+$picture[3].img_url+'" alt=""></a> ' +
+                '</div> </div>';
+
+        var main_pic_div = $('#pic_main_div');
+
+        main_pic_div.after(pic_con);
+    }
+
+    /**
+     * 初始化资讯
+     * @param $news
+     */
+    function initNews($news) {
+
+        var ulEle = $('#list_news_ul');
+        for (var i = 0; i < 4; i++) {
+
+            var news_str = '<li><a href="news_details.html?news_id="+ $news[i].news_id ' +
+                    '<div class="item-content recommend_list_cont"> ' +
+                    '<div class="item-media recommend_list_img home_img"><img src="' + $news[i].cover_img_url + '"></div> ' +
+                    '<div class="item-inner" style="margin-left:2%;padding-right: 0.3rem"> ' +
+                    '<div class="item-title-row"> ' +
+                    '<div class="item-title" style="font-size:0.65rem">' + $news[i].title + '</div> ' +
+                    '</div> ' +
+                    '<div class="recommend_list_stitle"> ' +
+                    '<div class="recommend_list_eye"><img src="img/viewed.png">' + $news[i].view_num + '</div> ' +
+                    '<div class="recommend_list_date">' + $news[i].create_time + '</div> ' +
+                    '</div> ' +
+                    '</div> ' +
+                    '</div> ' +
+                    '</li>'
+            ulEle.append(news_str);
+        }
+    }
+
+    function watchVideo($video_src) {
+        var myPhotoBrowserVideo = $.photoBrowser({
+            photos : [
+                {
+                    //url: 'http://player.youku.com/embed/XMTU2NTU0NjQxNg=='
+                    html:'<iframe src="'+$video_src+'" frameborder=0 allowfullscreen></iframe>'
+                },
+
+            ],
+            theme: 'dark',
+            type: 'standalone'
+        });
+        myPhotoBrowserVideo.open();
+    }
+
+    /**
+     * 进入资讯列表页面
+     * @param $newsId
+     */
+    function  goNewsList() {
+        //window.location.href = "news.html";
+        $.router.load("news.html");
+    }
+
+
+    /**
+     * 进入搜索列表页面
+     * @param $newsId
+     */
+    function goSearch() {
+        //window.location.href = "search.html";
+        $.router.load("search.html");
+    }
+</script>
+</body>
+</html>

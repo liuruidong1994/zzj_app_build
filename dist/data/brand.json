@@ -1,0 +1,90 @@
+{
+      "statusCode": 200,
+      "statusMsg": "OK",
+      "data": {
+            "is_end" : "0",
+            "brand":[
+                  {
+                        "img_ur": "img/logo/ds.png",
+                        "name": "阿帕奇",
+                        "brand_id": "1a",
+                        "brand_En":"A"
+                  }, {
+                        "img_ur": "img/logo/lg.png",
+                        "name": "阿帕奇",
+                        "brand_id": "1a",
+                        "brand_En":"A"
+                  }, {
+                        "img_ur": "img/logo/ds.png",
+                        "name": "阿帕奇",
+                        "brand_id": "1a",
+                        "brand_En":"B"
+                  }, {
+                        "img_ur": "img/logo/lg.png",
+                        "name": "阿帕奇",
+                        "brand_id": "1a",
+                        "brand_En":"B"
+                  }, {
+                        "img_ur": "img/logo/ds.png",
+                        "name": "阿帕奇",
+                        "brand_id": "1a",
+                        "brand_En":"C"
+                  }, {
+                        "img_ur": "img/logo/lg.png",
+                        "name": "阿帕奇",
+                        "brand_id": "1a",
+                        "brand_En":"C"
+                  }, {
+                        "img_ur": "img/logo/ds.png",
+                        "name": "阿帕奇",
+                        "brand_id": "1a",
+                        "brand_En":"D"
+                  }, {
+                        "img_ur": "img/logo/lg.png",
+                        "name": "阿帕奇",
+                        "brand_id": "1a",
+                        "brand_En":"D"
+                  }, {
+                        "img_ur": "img/logo/ds.png",
+                        "name": "阿帕奇",
+                        "brand_id": "1a",
+                        "brand_En":"E"
+                  }, {
+                        "img_ur": "img/logo/lg.png",
+                        "name": "阿帕奇",
+                        "brand_id": "1a",
+                        "brand_En":"E"
+                  }, {
+                        "img_ur": "img/logo/ds.png",
+                        "name": "阿帕奇",
+                        "brand_id": "1a",
+                        "brand_En":"F"
+                  }, {
+                        "img_ur": "img/logo/lg.png",
+                        "name": "阿帕奇",
+                        "brand_id": "1a",
+                        "brand_En":"F"
+                  } , {
+                        "img_ur": "img/logo/ds.png",
+                        "name": "阿帕奇",
+                        "brand_id": "1a",
+                        "brand_En":"F"
+                  }, {
+                        "img_ur": "img/logo/lg.png",
+                        "name": "阿帕奇",
+                        "brand_id": "1a",
+                        "brand_En":"F"
+                  }, {
+                        "img_ur": "img/logo/ds.png",
+                        "name": "阿帕奇",
+                        "brand_id": "1a",
+                        "brand_En":"F"
+                  }, {
+                        "img_ur": "img/logo/lg.png",
+                        "name": "阿帕奇",
+                        "brand_id": "1a",
+                        "brand_En":"F"
+                  }
+            ]
+      }
+}

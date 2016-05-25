@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>产品_详情页</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="assets/css/demos.css">
+    <link rel="stylesheet" href="dist/css/style.css">
+
+</head>
+<body>
+<!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+<div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page" id="product_detail_page">
+        <!-- 标题栏 -->
+        <header class="bar bar-nav add_bar">
+            <a class="icon icon-left pull-left back"></a>
+            <h1 class="title">小松SY220C挖掘机</h1>
+        </header>
+
+        <!-- 这里是页面内容区 -->
+        <div class="content" style="background-color: #ffffff;">
+            <!-- Slider -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper" id="pic_div">
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="product_deta_titlebox">
+                <div class="row no-gutter">
+                    <div class="col-80">
+                        <div class="product_deta_title" id="pro_title_div"></div>
+                        <div class="product_deta_price" id="pro_price_div"></div>
+                    </div>
+                    <div class="col-20" style="margin-top: 0.8rem;">
+                        <div class="product_deta_toPic"><a id="a_watch" >查看图库></a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product_detail_con">
+                <div class="product_detail_conTitle">
+                    <div class="color_boxS left"></div>
+                    <div class="left">基本信息</div>
+                </div>
+                <div class="product_detail_conData">
+                    <div class="row no-gutter" style="margin-bottom:0.3rem;">
+                        <div class="col-50">
+                            <div class="row no-gutter">
+                                <div class="col-50 product_dateTit">三项和(s)</div>
+                                <div class="col-50 product_dateCon" id="brand_sxh_div"></div>
+                            </div>
+                        </div>
+                        <div class="col-50">
+                            <div class="row no-gutter">
+                                <div class="col-50 product_dateTit">额定功率(Kw/rpm)</div>
+                                <div class="col-50 product_dateCon" id="brand_edgl_div"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row no-gutter" style="margin-bottom:0.3rem;">
+                        <div class="col-50">
+                            <div class="row no-gutter">
+                                <div class="col-50 product_dateTit">发动机型号</div>
+                                <div class="col-50 product_dateCon" id="brand_fdjxh_div"></div>
+                            </div>
+                        </div>
+                        <div class="col-50">
+                            <div class="row no-gutter">
+                                <div class="col-50 product_dateTit">整机操作重量(kg)</div>
+                                <div class="col-50 product_dateCon" id="brand_zjczzl_div"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row no-gutter" style="margin-bottom:0.3rem;">
+                        <div class="col-50">
+                            <div class="row no-gutter">
+                                <div class="col-50 product_dateTit">挖掘力(掘起力)(kN)</div>
+                                <div class="col-50 product_dateCon" id="brand_wjl_div"></div>
+                            </div>
+                        </div>
+                        <div class="col-50">
+                            <div class="row no-gutter">
+                                <div class="col-50 product_dateTit">额定铲斗容量(m³)</div>
+                                <div class="col-50 product_dateCon" id="brand_edcdrl_div"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row no-gutter" style="margin-bottom:0.3rem;">
+                        <div class="col-50">
+                            <div class="row no-gutter">
+                                <div class="col-50 product_dateTit">额定载重量(kg)</div>
+                                <div class="col-50 product_dateCon" id="brand_edzhl_div"></div>
+                            </div>
+                        </div>
+                        <div class="col-50">
+                            <div class="row no-gutter">
+                                <div class="col-50 product_dateTit">吨位</div>
+                                <div class="col-50 product_dateCon" id="brand_don_div"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="row no-gutter" style="margin-bottom:0.3rem;">
+                        <div class="col-50">
+                            <div class="row no-gutter">
+                                <div class="col-50 product_dateTit">吨位</div>
+                                <div class="col-50 product_dateCon" id="brand_don_div"></div>
+                            </div>
+                        </div>
+                        <div class="col-50">
+                            <div class="row no-gutter">
+                                <div class="col-50 product_dateTit"></div>
+                                <div class="col-50 product_dateCon"></div>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+            <div class="product_detail_con">
+                <div class="product_detail_conTitle">
+                    <div class="color_boxS left"></div>
+                    <div class="left">基本信息</div>
+                </div>
+                <div class="product_detail_conData" id="brand_info_div">
+
+                </div>
+            </div>
+        </div>
+        <script>
+
+            var productId;
+
+            function giveProductId($productId) {
+                productId = $productId;
+                $('#a_watch').attr("href", "picture_list3.html?productId="+productId);
+            }
+            /**
+             * 初始化详情页面数据
+             * @param $data
+             */
+            function initProductDetail($data) {
+                console.log("要啥自行车");
+                var mainPicDiv = $('#pic_div');
+
+                for (var i = 0; i< 3; i++) {
+                    if(!$data.whole_pic[i]){
+                        continue;
+                    }
+                    var pic_str = '<div class="swiper-slide"> ' +
+                            //'<img src="'+ $data.pictures[i].cover_img_url +'" alt="" style="width: 100%"> </div>';
+                            '<img src="'+ $data.whole_pic[i].img_url +'" alt="" style="width: 100%"> </div>';
+
+                    mainPicDiv.append(pic_str);
+                }
+                $('#pro_title_div').text($data.title);
+                $('#pro_price_div').text($data.price);
+
+                $('#brand_sxh_div').text($data.sanxianghe);
+                $('#brand_edgl_div').text($data.edinggonglv);
+                $('#brand_fdjxh_div').text($data.fadongji);
+                $('#brand_zjczzl_div').text($data.zhengjicaozuozhongliang);
+                $('#brand_wjl_div').text($data.wajueli);
+                $('#brand_edcdrl_div').text($data.chandourongliang);
+                $('#brand_edzzl_div').text($data.edingzaizhongliang);
+                //$('#brand_fp_div').text($data.fapiao);
+                $('#brand_don_div').text($data.ton);
+                $('#brand_info_div').html($data.device_param);
+
+            }
+
+            function GetQueryString(name)
+            {
+                var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if(r!=null)return  decodeURI(r[2]); return null;
+            }
+
+            function loadSwiper() {
+                var swiper = new Swiper('.swiper-container', {
+                    pagination: '.swiper-pagination',
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    paginationClickable: true,
+                    centeredSlides: true,
+//        autoplay: 2500,
+                    autoplayDisableOnInteraction: false,
+                    loop : true
+                });
+            }
+        </script>
+    </div>
+</div>
+
+<script type='text/javascript' src="http://g.alicdn.com/sj/lib/zepto/zepto.min.js" charset='utf-8'></script>
+<script src="assets/js/config.js"></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='dist/js/sm-extend.min.js' charset='utf-8'></script>
+<script src="assets/js/swiper.js"></script>
+<script src="dist/busi.js"></script>
+<script>
+$(function() {
+//    var swiper = new Swiper('.swiper-container', {
+//        pagination: '.swiper-pagination',
+//        nextButton: '.swiper-button-next',
+//        prevButton: '.swiper-button-prev',
+//        paginationClickable: true,
+//        centeredSlides: true,
+////        autoplay: 2500,
+//        autoplayDisableOnInteraction: false,
+//        loop : true
+//    });
+});
+</script>
+</body>
+</html>
