@@ -3,9 +3,8 @@
  */
 
 var path_local = "dist/data/";
-//var path_remote = "http://owiss-cloud.test.liuruidong.net/zzj/";
-//var path_remote = "http://localhost:8080/zhuangzaiji/api.php/";
-var path_remote = "http://zzj.liuruidong.net/cloud/api.php/";
+
+var path_remote = "http://www.loaderhome.com/api.php/";
 
 var path = path_remote;
 
