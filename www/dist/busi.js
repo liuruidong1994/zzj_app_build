@@ -4,7 +4,7 @@
 
 var path_local = "dist/data/";
 
-var path_remote = "http://www.loaderhome.com/api.php/";
+var path_remote = "http://zzj.liuruidong.net/cloud/api.php/";
 
 var path = path_remote;
 
