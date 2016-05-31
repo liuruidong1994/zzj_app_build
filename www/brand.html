@@ -138,7 +138,7 @@
                                 initProduct(data.data.product);
                                 loading = false;
                                 //lastIndex是数据的最后一个的id
-                                lastIndex = "";
+                                lastIndex = data.data.product[data.data.product.length-1].product_id;;
                                 $.refreshScroller();
                             }, 1000);
                         }

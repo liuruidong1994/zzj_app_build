@@ -144,9 +144,8 @@
                     setTimeout(function () {
                         console.log("无限加载开始啦！！");
                         initVideo(data.data.video);
-
                         //lastIndex是数据的最后一个的id
-                        lastIndex = "";
+                        lastIndex = data.data.video[data.data.video.length-1].video_id;;
                         $.refreshScroller();
                     }, 1000);
                 }
