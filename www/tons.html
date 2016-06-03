@@ -66,10 +66,10 @@
             function giveTons($minTon, $maxTon) {
                 minTon = $minTon;
                 maxTon = $maxTon;
-                if ($maxTon == 5) {
-                    $('#title_h').text("5吨以下");
-                } else if ($minTon == 16) {
-                    $('#title_h').text("16吨以上");
+                if ($maxTon == 1) {
+                    $('#title_h').text("1吨以下");
+                } else if ($minTon == 5) {
+                    $('#title_h').text("5吨以上");
                 } else {
                     $('#title_h').text($minTon + "~" + $maxTon + "吨");
                 }

@@ -71,7 +71,8 @@
              * 初始化页面的数据
              */
             function  initProduct($product) {
-
+                console.log('initProduct');
+                console.log($product);
                 var ulEle = $('#list_brand_ul');
                 for (var i = 0; i < $product.length; i++) {
                     var brand_str = '<li> <a href="product_detail.html?productId='+ $product[i].product_id +'"> ' +
@@ -165,24 +166,24 @@
                         $(this).children().addClass("active").removeClass("nomal");
 
                         if (this.id == "don0"){
-                            minTon = 999;
-                            maxTon = 0;
+                            minTon = 0;
+                            maxTon = 9999;
                         } else if(this.id == "don1"){
                             minTon = 0;
-                            maxTon = 5;
+                            maxTon = 1;
                         } else if(this.id == "don2"){
-                            minTon = 5;
-                            maxTon = 8;
+                            minTon = 1;
+                            maxTon = 3;
                         } else if(this.id == "don3"){
-                            minTon = 8;
-                            maxTon = 12;
+                            minTon = 3;
+                            maxTon = 5;
                         } else if(this.id == "don4"){
-                            minTon = 12;
-                            maxTon = 16;
-                        } else if(this.id == "don5"){
+                            minTon = 5;
+                            maxTon = 9999;
+                        } /*else if(this.id == "don5"){
                             minTon = 16;
                             maxTon = 999;
-                        }
+                        }*/
                         doLoadData();
                     })
                 })
@@ -237,11 +238,11 @@
         <div class="tons_pop_list">
             <ul>
                 <li class="close-popup" id="don0">全部吨位<span class="icon icon-check tons_popIcon active"></span></li>
-                <li class="close-popup" id="don1">5吨以下<span class="icon icon-check tons_popIcon"></span></li>
-                <li class="close-popup" id="don2">5~8吨 <span class="icon icon-check tons_popIcon"></span></li>
-                <li class="close-popup" id="don3">8~12吨<span class="icon icon-check tons_popIcon"></span></li>
-                <li class="close-popup" id="don4">12~16吨<span class="icon icon-check tons_popIcon"></span></li>
-                <li class="close-popup" id="don5">16吨以上 <span class="icon icon-check tons_popIcon"></span></li>
+                <li class="close-popup" id="don1">1吨以下<span class="icon icon-check tons_popIcon"></span></li>
+                <li class="close-popup" id="don2">1~3吨 <span class="icon icon-check tons_popIcon"></span></li>
+                <li class="close-popup" id="don3">3~5吨<span class="icon icon-check tons_popIcon"></span></li>
+                <li class="close-popup" id="don4">5吨以上<span class="icon icon-check tons_popIcon"></span></li>
+                <!--<li class="close-popup" id="don5">16吨以上 <span class="icon icon-check tons_popIcon"></span></li>-->
             </ul>
         </div>
     </div>

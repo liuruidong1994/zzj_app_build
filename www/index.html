@@ -66,11 +66,11 @@
 
             <div class="home_part">
                 <div id="don_div" class="row  no-gutter home_dun_row">
-                    <div class="col-20"><a href="tons.html?minTon=0&maxTon=5">5吨以下</a></div>
-                    <div class="col-20"><a href="tons.html?minTon=5&maxTon=8">5~8吨</a></div>
-                    <div class="col-20"><a href="tons.html?minTon=8&maxTon=12">8~12吨</a></div>
-                    <div class="col-20"><a href="tons.html?minTon=12&maxTon=16">12~16吨</a></div>
-                    <div class="col-20"><a href="tons.html?minTon=16&maxTon=999">16吨以上</a></div>
+                    <div class="col-20"><a href="tons.html?minTon=0&maxTon=1">1吨以下</a></div>
+                    <div class="col-20"><a href="tons.html?minTon=1&maxTon=3">1~3吨</a></div>
+                    <div class="col-20"><a href="tons.html?minTon=3&maxTon=5">3~5吨</a></div>
+                    <div class="col-20"><a href="tons.html?minTon=5&maxTon=9999">5吨以上</a></div>
+                    <!--<div class="col-20"><a href="tons.html?minTon=16&maxTon=999">16吨以上</a></div>-->
                 </div>
                 <div class="home_more_logo"><a href="photos.html">查看所有品牌</a></div>
             </div>
@@ -336,7 +336,7 @@
         for (var i = 0; i < 3; i++) {
             var wl = "http://www.baidu.com.cn";
             //var wl = $product[i].url;
-            var item_li = '<li> <a href="'+ wl+'" ' +
+            var item_li = '<li> <a href="'+ $product[i].sell_url+'" ' +
                     '<div class="item-content recommend_list_cont"> ' +
                     '<div class="item-media recommend_list_img home_img"><img src="'+$product[i].cover_img_url+'"></div> ' +
                     '<div class="item-inner" style="margin-left:2%;padding-right: 0.3rem"> ' +
